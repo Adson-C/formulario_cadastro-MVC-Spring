@@ -1,7 +1,7 @@
 package com.ads.dev.boot.domain;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
