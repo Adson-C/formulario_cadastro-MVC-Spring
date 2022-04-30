@@ -16,5 +16,7 @@ void salvar(Departamento departamento);
 	
 	List<Departamento> buscarTodos();
 
+	boolean departamentoTemCargo(Long id);
+
 
 }
