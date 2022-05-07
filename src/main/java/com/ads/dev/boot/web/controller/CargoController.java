@@ -17,8 +17,6 @@ import com.ads.dev.boot.domain.Departamento;
 import com.ads.dev.boot.service.CargoService;
 import com.ads.dev.boot.service.DepartamenntoService;
 
-import groovyjarjarpicocli.CommandLine.Model;
-
 @Controller
 @RequestMapping("/cargos")
 public class CargoController {
@@ -60,6 +58,21 @@ public class CargoController {
 		attr.addFlashAttribute("success", "Registro atualizado com sucesso.");
 		
 		return "redirect:/cargos/cadastrar";
+	}
+	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+		
+		if(cargoService.cargoTemFuncionarios(id)) {
+			attr.addFlashAttribute("fail", "Cargo não excluido, Tem funcionário(s) vinculados.");
+		}
+		else {
+			cargoService.excluir(id);
+			attr.addFlashAttribute("success", "Cargos excluido com sucesso.");
+			
+		}
+		
+		return "redirect:/cargos/listar";
 	}
 	
 	
