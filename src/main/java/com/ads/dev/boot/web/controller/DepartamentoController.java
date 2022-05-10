@@ -21,13 +21,13 @@ public class DepartamentoController {
 	
 	@GetMapping("/cadastrar")
 	public String cadastrar(Departamento departamento) {
-		return "departamento/cadastro";
+		return "/departamento/cadastro";
 	}
 
 	@GetMapping("/listar")
 	public String listar(ModelMap model) { // cria uma variavel 
 		model.addAttribute("departamentos", service.buscarTodos());
-		return "departamento/lista";
+		return "/departamento/lista";
 	}
 	
 	@PostMapping("/salvar")
