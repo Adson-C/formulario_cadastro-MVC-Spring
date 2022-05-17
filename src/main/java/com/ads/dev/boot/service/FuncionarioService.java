@@ -1,5 +1,6 @@
 package com.ads.dev.boot.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.ads.dev.boot.domain.Funcionario;
@@ -19,5 +20,7 @@ void salvar(Funcionario funcionario);
 	List<Funcionario> buscarPorNome(String nome);
 
 	List<Funcionario> buscarPorCargo(Long id);
+
+	List<Funcionario> buscarPorDatas(LocalDate entrada, LocalDate saida);
 
 }
