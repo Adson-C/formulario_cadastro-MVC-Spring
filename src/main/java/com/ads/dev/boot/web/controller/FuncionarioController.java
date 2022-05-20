@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +24,7 @@ import com.ads.dev.boot.domain.Funcionario;
 import com.ads.dev.boot.domain.UF;
 import com.ads.dev.boot.service.CargoService;
 import com.ads.dev.boot.service.FuncionarioService;
+import com.ads.dev.boot.web.validation.FuncionarioValidator;
 
 @Controller
 @RequestMapping("/funcionarios")
@@ -32,6 +35,13 @@ public class FuncionarioController {
 	
 	@Autowired
 	private CargoService cargoService;
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		
+		binder.addValidators(new FuncionarioValidator());
+		
+	}
 	
 	@GetMapping("/cadastrar")
 	public String cadastrar(Funcionario funcionario) {
