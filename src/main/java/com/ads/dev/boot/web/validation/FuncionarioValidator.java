@@ -24,7 +24,7 @@ public class FuncionarioValidator implements Validator{
 		
 		if (f.getDataSaida() != null) {
 			if (f.getDataSaida().isBefore(entrada)) {
-				errors.reject("dataSaida", "PosteriorDataEntrada.funcionario.dataSaida");
+				errors.rejectValue("dataSaida", "PosteriorDataEntrada.funcionario.dataSaida");
 			}
 		}
 	}
