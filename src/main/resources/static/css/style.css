@@ -87,7 +87,9 @@ body {
  */
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
 	color: #fff;
-	background-color: #1e94d2;
+/*	background-color: #1e94d2; */
+	background: rgb(34,195,185);
+	background: linear-gradient(0deg, rgba(34,195,185,1) 10%, rgba(10,74,42,1) 41%);
 }
 
 /*
