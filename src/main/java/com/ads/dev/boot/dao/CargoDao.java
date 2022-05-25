@@ -17,6 +17,6 @@ void save(Cargo cargo);
 	
 	List<Cargo> findAll();
 	
-	PaginacaoUtil<Cargo> buscaPaginada(int pagina);
+	public PaginacaoUtil<Cargo> buscaPaginada(int pagina, String direcao);
 
 }
